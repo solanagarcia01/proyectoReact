@@ -1,25 +1,17 @@
-// import logo from './logo.svg';
+import { useEffect, useRef } from "react"; // Asegúrate de importar lo que necesitas
 import './App.css';
-import { useEffect, useRef } from "react"; // Importamos useEffect y useRef
+import ItemCount from './ItemCount'; // Importa el componente que creaste
 
 function App() {
-  const searchInputRef = useRef(null); // Definimos la referencia
-
-  useEffect(() => {
-    if (searchInputRef.current) {
-      searchInputRef.current.focus(); // Hacemos foco en el input cuando el componente se monta
-    }
-  }, []); // El array vacío asegura que useEffect se ejecute solo una vez al montar
+  const stockDisponible = 10; // Simulamos el stock disponible
+  const onAdd = (cantidad) => {
+    console.log(`Agregaste ${cantidad} items al carrito`);
+  };
 
   return (
     <div>
-      {/* Colocamos el input dentro del return */}
-      <input
-        type="text"
-        id="search"
-        ref={searchInputRef}  // Usamos la referencia correcta
-        placeholder="Hola"
-      />
+      <h1>Tienda</h1>
+      <ItemCount stock={stockDisponible} initial={1} onAdd={onAdd} />
     </div>
   );
 }
