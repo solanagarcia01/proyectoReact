@@ -1,18 +1,13 @@
-import { useEffect, useRef } from "react"; // Asegúrate de importar lo que necesitas
-import './App.css';
-import ItemCount from './ItemCount'; // Importa el componente que creaste
+import './App.css'
+import TwitterFollowCard from './TwitterFollowCard';
 
 function App() {
-  const stockDisponible = 10; // Simulamos el stock disponible
-  const onAdd = (cantidad) => {
-    console.log(`Agregaste ${cantidad} items al carrito`);
-  };
-
   return (
-    <div>
-      <h1>Tienda</h1>
-      <ItemCount stock={stockDisponible} initial={1} onAdd={onAdd} />
-    </div>
+      <section className="App">
+      <TwitterFollowCard isFollowing= {true} userName="solanagarcia" name="Solana Garcia"/>
+      <TwitterFollowCard isFollowing= {false} userName="pheralb" name="Pablo Hernandez"/>
+      <TwitterFollowCard isFollowing userName="elonmusk" name ="Elon Musk"/>
+      </section>    
   );
 }
 
